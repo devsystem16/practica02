@@ -7,7 +7,7 @@ class Header extends Component {
     render() { 
         return (
         <Fragment>
-                     <div>Header</div> 
+                     <header className="text-center">Agenda de citas</header> 
         </Fragment>
         
      );
