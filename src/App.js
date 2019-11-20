@@ -11,6 +11,27 @@ class App extends Component {
     }
   }
 
+
+
+  componentDidMount() {
+    const citasDB = localStorage.getItem("cita")  ;
+    if (citasDB){
+      this.setState({
+        citas: JSON.parse(citasDB)
+      })
+    }
+  }
+
+   
+  componentDidUpdate() {
+    localStorage.setItem("cita" , JSON.stringify(this.state.citas))
+    console.log("componentDidUpdate ")
+  }
+
+
+
+
+
   guardarCita = (cita) => {
     console.log(cita)
     this.setState({
@@ -18,7 +39,7 @@ class App extends Component {
     })
   }
 
-  
+
   eliminarCita = (id) => {
     let citasActual = this.state.citas.filter(arrayCitas => {
       return arrayCitas.id !== id
