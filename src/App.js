@@ -6,14 +6,19 @@ import AgendarCita from './components/AgendarCita'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      citas: []
+    }
   }
-
 
   guardarCita = (cita) => {
     console.log(cita)
+    this.setState({
+      citas: [...this.state.citas, cita]
+    })
   }
 
+  
   render() {
     return (
       // Etiquetas vacias equivalen a un Fragment

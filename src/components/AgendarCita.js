@@ -48,7 +48,7 @@ class AgendarCita extends Component {
                 <form className="form-group" onSubmit={this.guardarFormulario}>
 
                     {this.state.error ?  <Error mensaje="Todos los campos son  requeridos"></Error>:null}
-                    
+
                     <div className="form-group">
                         <label htmlFor="nombreCliente"> Nombre Cliente : </label>
                         <input type="text" className="form-control" placeholder="Ingreso nombre" name="nombreCliente" onChange={this.guardarInfo} />
