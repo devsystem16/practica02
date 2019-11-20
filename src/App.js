@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Header from './components/Header'
 import AgendarCita from './components/AgendarCita'
-
+import ListaCitas from './components/ListaCitas'
 
 class App extends Component {
   constructor(props) {
@@ -19,18 +19,30 @@ class App extends Component {
   }
 
   
+  eliminarCita = (id) => {
+    let citasActual = this.state.citas.filter(arrayCitas => {
+      return arrayCitas.id !== id
+    })
+    this.setState({
+      citas: citasActual
+    })
+  }
+
+
   render() {
     return (
       // Etiquetas vacias equivalen a un Fragment
       <>
         <Header />
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-md-6"><h4 className="text-center">Agendar Cita</h4>
               <AgendarCita guardarCita={this.guardarCita} />
             </div>
 
-            <div className="col-md-6"> <h4 className="text-center"> Lista de citas</h4></div>
+            <div className="col-md-6"> <h4 className="text-center"> Lista de citas</h4>
+              <ListaCitas citas={this.state.citas} eliminarCita={this.eliminarCita} />
+            </div>
           </div>
         </div>
       </>
